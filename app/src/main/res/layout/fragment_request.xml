@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".RequestFragment">
 
     <androidx.core.widget.NestedScrollView
@@ -18,26 +20,139 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Request URL"
+                android:text="@string/request_url"
                 android:textStyle="bold"
-                android:textSize="18sp" />
+                android:textSize="@dimen/very_large_sp" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter URL"
+                android:layout_marginVertical="@dimen/small_dp"
+                android:textSize="@dimen/large_sp"
+                android:hint="@string/enter_url"
                 android:inputType="textLongMessage|textMultiLine" />
 
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:padding="10dp"
-                android:text="Method"
-                android:background="@drawable/bg_textview_grey"
-                android:textSize="14sp" />
+                android:background="@drawable/bg_textview_teal"
+                android:layout_marginTop="@dimen/small_dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_marginEnd="@dimen/large_dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/medium_dp"
+                        android:text="@string/select_operation"
+                        android:layout_weight="0.5"
+                        android:textStyle="bold"
+                        android:textSize="14sp" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/ch_select"
+                        style="@style/Widget.MaterialComponents.Chip.Filter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/get"
+                        android:layout_margin="@dimen/small_dp"
+                        android:clickable="false"
+                        android:textSize="@dimen/large_sp"
+                        android:checked="true"/>
+
+                    <ImageView
+                        android:id="@+id/iv_arrow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/icon_down"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/cgRequests"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="@dimen/small_dp"
+                        android:background="@color/black"/>
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/medium_dp"
+                        android:layout_gravity="center_horizontal">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/ch_get"
+                            style="@style/Widget.MaterialComponents.Chip.Action"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/small_dp"
+                            android:text="@string/get"
+                            android:textSize="@dimen/large_sp"/>
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/ch_post"
+                            style="@style/Widget.MaterialComponents.Chip.Action"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/small_dp"
+                            android:text="@string/post"
+                            android:textSize="@dimen/large_sp"/>
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/ch_update"
+                            style="@style/Widget.MaterialComponents.Chip.Action"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/small_dp"
+                            android:text="@string/update"
+                            android:textSize="@dimen/large_sp"/>
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/ch_delete"
+                            style="@style/Widget.MaterialComponents.Chip.Action"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/small_dp"
+                            android:text="@string/delete"
+                            android:textSize="@dimen/large_sp"/>
+
+
+                    </com.google.android.material.chip.ChipGroup>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_marginTop="@dimen/large_dp"
+                android:layout_width="match_parent"
+                app:tabMode="scrollable"
+                app:tabIndicatorGravity="stretch"
+                app:tabIndicatorAnimationMode="elastic"
+                app:tabSelectedTextColor="@color/white"
+                app:tabIndicatorColor="@null"
+                app:tabIndicator="@drawable/bg_tab_layout_request"
+                android:layout_height="40dp" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
 
         </LinearLayout>

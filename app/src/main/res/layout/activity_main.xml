@@ -26,7 +26,8 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/bottom_ll"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/purple_200"
         android:orientation="vertical">
@@ -35,9 +36,12 @@
             android:id="@+id/btnGetResponse"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="@string/execute"
+            android:textSize="@dimen/large_sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
             android:layout_margin="10dp"
             android:backgroundTint="@color/teal_700" />
-
 
     </LinearLayout>
 

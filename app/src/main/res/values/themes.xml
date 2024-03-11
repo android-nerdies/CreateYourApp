@@ -13,4 +13,9 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="NoUnderlineTextInputEditText" parent="Widget.MaterialComponents.TextInputEditText.FilledBox">
+        <item name="boxBackgroundMode">filled</item>
+        <item name="android:background">@null</item>
+    </style>
 </resources>
